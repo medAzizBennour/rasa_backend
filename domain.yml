@@ -2,7 +2,6 @@ version: '3.1'
 intents:
 - affirm
 - bot_challenge
-- buy_stock
 - deny
 - goodbye
 - greet
@@ -11,9 +10,9 @@ intents:
 - mood_unhappy
 - navigate
 - search
-- sell_stock
 - filter
 - thank
+- place_order
 entities:
 - page
 - stock_company
@@ -22,7 +21,8 @@ entities:
 - filtered_obj
 - criteria
 - stock_list
-
+- order
+- destination
 slots:
   stock_company:
     type: text
@@ -31,9 +31,17 @@ slots:
     - type: from_entity
       entity: stock_company
       intent:
-      - buy_stock
-      - sell_stock
       - inform_stock
+      - place_order
+  destination:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: destination
+      intent:
+      - inform_stock
+      - place_order
   page:
     type: text
     influence_conversation: true
@@ -42,6 +50,17 @@ slots:
       entity: page
       intent:
       - navigate
+  order:
+    type: categorical
+    influence_conversation: true
+    values: 
+      - buy 
+      - sell
+    mappings:
+    - type: from_entity
+      entity: order
+      intent:
+      - place_order
   stock_number:
     type: float
     influence_conversation: true
@@ -49,8 +68,7 @@ slots:
     - type: from_entity
       entity: stock_number
       intent:
-      - buy_stock
-      - sell_stock
+      - place_order
       - inform_stock
   query:
     type: text
@@ -83,14 +101,12 @@ slots:
       entity: stock_list
       intent: filter
 forms:
-  buy_stock_form:
+  place_order_form:
     required_slots:
+    - order
     - stock_company
     - stock_number
-  sell_stock_form:
-    required_slots:
-    - stock_company
-    - stock_number
+    - destination
   filter_form:
     required_slots:
     - criteria
@@ -143,8 +159,9 @@ actions:
 - action_submit_order_form
 - action_ask_stock_company
 - action_ask_stock_number
+- action_ask_destination
 
-- validate_buy_stock_form
+- validate_place_order_form
 - action_submit_navigate_form
 - action_ask_page
 - validate_navigate_form
