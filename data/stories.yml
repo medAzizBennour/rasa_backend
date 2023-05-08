@@ -172,3 +172,178 @@ stories:
 
 
 
+
+- story: interactive_story_naviation
+  steps:
+  - intent: place_order
+    entities:
+    - order: buy
+    - stock_number: '30'
+    - stock_company: tesla
+    - destination: gold
+  - slot_was_set:
+    - stock_company: tesla
+  - slot_was_set:
+    - destination: gold
+  - slot_was_set:
+    - order: buy
+  - slot_was_set:
+    - stock_number: '30'
+  - action: place_order_form
+  - active_loop: place_order_form
+  - slot_was_set:
+    - order: buy
+  - slot_was_set:
+    - stock_company: tesla
+  - slot_was_set:
+    - stock_number: '30'
+  - slot_was_set:
+    - destination: gold
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_order_form
+  - slot_was_set:
+    - stock_company: null
+  - slot_was_set:
+    - stock_number: null
+  - intent: navigate
+    entities:
+    - page: dashboard
+  - slot_was_set:
+    - page: dashboard
+  - action: navigate_form
+  - active_loop: navigate_form
+  - slot_was_set:
+    - page: dashboard
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_navigate_form
+  - slot_was_set:
+    - page: null
+  - intent: navigate
+    entities:
+    - page: orders
+  - slot_was_set:
+    - page: orders
+  - action: navigate_form
+  - active_loop: navigate_form
+  - slot_was_set:
+    - page: orders
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_navigate_form
+  - slot_was_set:
+    - page: null
+  - intent: navigate
+    entities:
+    - page: placements
+  - slot_was_set:
+    - page: placements
+  - action: navigate_form
+  - active_loop: navigate_form
+  - slot_was_set:
+    - page: placements
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_navigate_form
+  - slot_was_set:
+    - page: null
+  - intent: navigate
+    entities:
+    - page: dashboard
+  - slot_was_set:
+    - page: dashboard
+  - action: navigate_form
+  - active_loop: navigate_form
+  - slot_was_set:
+    - page: dashboard
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_navigate_form
+  - slot_was_set:
+    - page: null
+
+- story: interactive_story_1
+  steps:
+  - intent: place_order
+    entities:
+    - order: buy
+  - slot_was_set:
+    - order: buy
+  - action: place_order_form
+  - active_loop: place_order_form
+  - slot_was_set:
+    - order: buy
+  - slot_was_set:
+    - requested_slot: stock_company
+  - intent: inform_stock
+    entities:
+    - stock_company: nvidia
+  - slot_was_set:
+    - stock_company: nvidia
+  - action: place_order_form
+  - intent: inform_stock
+    entities:
+    - stock_number: '200'
+  - slot_was_set:
+    - stock_number: '200'
+  - action: place_order_form
+  - slot_was_set:
+    - stock_number: '200'
+  - slot_was_set:
+    - requested_slot: destination
+  - intent: inform_stock
+    entities:
+    - destination: gold
+  - slot_was_set:
+    - destination: gold
+  - action: place_order_form
+  - slot_was_set:
+    - destination: gold
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_order_form
+  - slot_was_set:
+    - stock_company: null
+  - slot_was_set:
+    - stock_number: null
+  - intent: place_order
+    entities:
+    - order: sell
+    - stock_number: '20'
+  - slot_was_set:
+    - order: sell
+  - slot_was_set:
+    - stock_number: '20'
+  - action: place_order_form
+  - active_loop: place_order_form
+  - slot_was_set:
+    - order: sell
+  - slot_was_set:
+    - stock_number: '20'
+  - slot_was_set:
+    - destination: gold
+  - slot_was_set:
+    - requested_slot: stock_company
+  - intent: inform_stock
+    entities:
+    - stock_company: tesla
+  - slot_was_set:
+    - stock_company: tesla
+  - action: place_order_form
+  - slot_was_set:
+    - stock_company: tesla
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_order_form
+  - slot_was_set:
+    - stock_company: null
+  - slot_was_set:
+    - stock_number: null

@@ -3,26 +3,26 @@ intents:
 - affirm
 - bot_challenge
 - deny
+- filter
 - goodbye
 - greet
 - inform_stock
 - mood_great
 - mood_unhappy
 - navigate
-- search
-- filter
-- thank
 - place_order
+- search
+- thank
 entities:
-- page
-- stock_company
 - stock_number
+- stock_company
+- destination
+- order
+- page
 - query
 - filtered_obj
 - criteria
 - stock_list
-- order
-- destination
 slots:
   stock_company:
     type: text
@@ -53,9 +53,9 @@ slots:
   order:
     type: categorical
     influence_conversation: true
-    values: 
-      - buy 
-      - sell
+    values:
+    - buy
+    - sell
     mappings:
     - type: from_entity
       entity: order
@@ -85,7 +85,6 @@ slots:
     - type: from_entity
       entity: filtered_obj
       intent: filter
-
   criteria:
     type: text
     influence_conversation: true
@@ -150,29 +149,24 @@ responses:
   - text: Happy to help! Do come back if you need further assistance.
   - text: Not a problem! Glad I could be of assistance.
   - text: Anytime! Don't hesitate to reach out again if you need anything.
-
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 actions:
-- action_handle_fail_inform
 - action_submit_order_form
+- action_submit_navigate_form
+- action_handle_fail_inform
 - action_ask_stock_company
 - action_ask_stock_number
 - action_ask_destination
-
 - validate_place_order_form
-- action_submit_navigate_form
 - action_ask_page
 - validate_navigate_form
 - action_submit_search_form
 - action_ask_query
 - action_default_fallback
-
 - action_ask_filtered_obj
 - action_ask_criteria
 - action_submit_filter_form
 - validate_filter_form
-
 - action_social_expresses
-

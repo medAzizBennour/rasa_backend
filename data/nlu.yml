@@ -100,7 +100,6 @@ nlu:
     - are you sure you are a bot?
     - bot?
     - human?
-
 - intent: inform_stock
   examples: |
     - [nvidia](stock_company)
@@ -119,10 +118,13 @@ nlu:
     - [100](stock_number) shares of [google](stock_company)
     - [nvidia](stock_company) stocks
     - [100](stock_number) shares of [IBM](stock_company)
-    - [nvidia](stock_company)
     - [20](stock_number) shares of [google](stock_company)
     - [gold](destination)
     - 
+    - [nvidia](stock_company)
+    - [200](stock_number)
+    - [gold](destination)
+    - [tesla](stock_company)
 - intent: navigate
   examples: |
     - navigate to my [potfolio](page)
@@ -142,6 +144,9 @@ nlu:
     - navigate to [dashboard](page)
     - navigate to [page](page)
     - [orders](page)
+    - navigate to [orders](page)
+    - go to helper
+    - go to the [dashboard](page)
 - intent: search
   examples: |
     - search for articles about trading
@@ -149,7 +154,7 @@ nlu:
     - Please look up articles about the importance of diversification in investing
     - Can you find me resources about algorithmic trading
     - Can you find me some resources about candlestick chart patterns
-    - Please search for articles about [the best stocks to invest in for long-term growth 
+    - Please search for articles about [the best stocks to invest in for long-term growth
     - Can you find me information about commodities trading
     - Can you find me resources about technical indicators
     - Find me the stock symbol for Microsoft
@@ -178,49 +183,39 @@ nlu:
     - How do I reset my password?
     - What's the latest news?
     - Can you help me find a job?
-    - What are the best places to travel? 
-
+    - What are the best places to travel?
 - intent: filter
   examples: |
     - Display the list of [closed](criteria) [orders](filtered_obj)
     - filter the list of [working](criteria) [orders](filtered_obj)
-    - show me the list of [new](criteria) [orders](filtered_obj) 
-    - filter [filled](criteria) [orders](filtered_obj)
     - show me the list of [new](criteria) [orders](filtered_obj)
-    - Display the list of [filled](criteria) [orders](filtered_obj) 
-    - filter the list of [working](criteria) [orders](filtered_obj) 
-    - Show me the list of [new](criteria) [orders](filtered_obj) 
+    - filter [filled](criteria) [orders](filtered_obj)
+    - Display the list of [filled](criteria) [orders](filtered_obj)
+    - Show me the list of [new](criteria) [orders](filtered_obj)
     - Dispaly the list of [closed](criteria) [orders](filtered_obj)
-    - Show me the list of [new](criteria) [orders](filtered_obj) 
     - Show me the list of [working](criteria) [orders](filtered_obj)
-    - Show me the list of [filled](criteria) [placements](filtered_obj) 
-    - Show me the list of [working](criteria) [placements](filtered_obj) 
-    - Show me the list of [filled](criteria) [placements](filtered_obj) 
+    - Show me the list of [filled](criteria) [placements](filtered_obj)
+    - Show me the list of [working](criteria) [placements](filtered_obj)
     - Show me the list of [new](criteria) [placements](filtered_obj)
     - Show me the list of [closed](criteria) [placements](filtered_obj)
-    - Show me the list of [working](criteria) [placements](filtered_obj) 
-    - Show me the list of [new](criteria) [placements](filtered_obj)
-    - Show me the list of [paused](criteria) [placements](filtered_obj) 
-    - Display the list of [working](criteria) [placements](filtered_obj) 
-    - Filter the list of [new](criteria) [placements](filtered_obj) 
+    - Show me the list of [paused](criteria) [placements](filtered_obj)
+    - Display the list of [working](criteria) [placements](filtered_obj)
+    - Filter the list of [new](criteria) [placements](filtered_obj)
     - Display the list of [filled](criteria) [placements](filtered_obj)
-    - Show me the list of [open](criteria) [placements](filtered_obj) 
-    - Display the list of [filled](criteria) [placements](filtered_obj) 
+    - Show me the list of [open](criteria) [placements](filtered_obj)
     - Filter the list of  [paused](criteria) [placements](filtered_obj)
     - filter the list of [orders](filtered_obj) by [new](criteria)
     - filter [new](criteria) [placements](filtered_obj)
     - filter [closed](criteria) [orders](filtered_obj)
-    - filter [orders](filtered_obj) by [filled](criteria) 
-    - filter the list of [working](criteria) [orders](filtered_obj)
+    - filter [orders](filtered_obj) by [filled](criteria)
     - display the list of [working](criteria) [placements](filtered_obj)
     - filter [orders](filtered_obj)
     - filter [placements](filtered_obj)
-
 - intent: place_order
   examples: |
-    - [purchase]{"entity": "order"} some stocks
-    - [purchase]{"entity": "order"} me a stock please
-    - i want to [purchase]{"entity": "order"} some shares
+    - [purchase](order) some stocks
+    - [purchase](order) me a stock please
+    - i want to [purchase](order) some shares
     - [buy](order) me a stock
     - i want to [buy](order) a stock
     - [buy](order) me some shares
@@ -236,8 +231,8 @@ nlu:
     - [buy](order) me [50](stock_number) shares of [nvidia](stock_company)
     - [buy](order) a stock
     - [buy](order) me another stock
-    - [purchase]{"entity": "order"} [10](stock_number) shares of [tesla](stock_company)
-    - i want to [purchase]{"entity": "order"}[100](stock_number) shares
+    - [purchase](order) [10](stock_number) shares of [tesla](stock_company)
+    - i want to [purchase](order)[100](stock_number) shares
     - [buy](order) me [100](stock_number) shares of [tesla](stock_company)
     - [buy](order) [100](stock_number) shares of [nvidia](stock_company)
     - [buy](order) me [10](stock_number) shares of [tesla](stock_company)
@@ -267,6 +262,6 @@ nlu:
     - [sell](order) [100](stock_number) shares of [nvidia](stock_company)
     - [sell](order) me [10](stock_number) shares of [tesla](stock_company)
     - i want to [sell](order) [tesla](stock_company) stock
-    
-
-
+    - [buy](order) [30](stock_number) shares of [tesla](stock_company) with [gold](destination)
+    - [buy](order)
+    - [sell](order) [20](stock_number) shares
